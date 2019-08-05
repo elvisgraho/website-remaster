@@ -1,0 +1,33 @@
+.letter{
+  display: inline-block;
+
+  color: $color-primary;
+
+  background-color: $color-b;
+
+  border: 2px solid $color-secondary;
+
+  transition: margin-top 0.2s ease-in,  margin-left 0.2s ease-in, margin-right 0.2s ease-in;
+
+  text-align: center;
+  vertical-align: middle;
+  
+
+  font-size: 40px;
+  line-height: 45px;
+  height: 45px;
+  width: 50px;
+
+  @include lg {
+    font-size: 50px;
+    line-height: 50px;
+    height: 50px;
+    width: 60px;
+  }
+  @include xl {
+    font-size: 70px;
+    line-height: 70px;
+    height: 70px;
+    width: 80px;
+  }
+}

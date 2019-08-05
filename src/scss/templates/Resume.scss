@@ -1,0 +1,266 @@
+.resume {
+  background-color: $color-b;
+  min-height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .resume__head, 
+  .resume__info__left, 
+  .resume__info__right__skills, 
+  .resume__info__right__skills, 
+  .resume__info__right__projects, 
+  .resume__info__right__history {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+  }
+
+  .active {
+    opacity: 1;
+  }
+
+  .button--primary{
+    margin-top: 10px;
+
+    @include lg {
+      margin-top: 20px;
+    }
+  }
+
+  &__wrapper{
+    width: calc(100% - 40px);
+    max-width: $wrapper-large;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    margin-top: 100px;
+
+    @include lg{
+      margin-top: 120px;
+    }
+  }
+
+  &__head{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    justify-content: space-between;
+
+    color: $color-white;
+
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+    @include lg{
+      margin-top: 60px;
+      margin-bottom: 20px;
+
+      flex-direction: row;
+    }
+
+    div{
+      display: flex;
+      justify-content: center;
+    }
+
+    div:first-child{
+      flex: 1;         
+      order: 2;
+
+      @include lg{
+        order: 0;
+      }
+    }
+    div:last-child{
+      flex: 2;
+    }
+
+    img {
+      height: 200px;
+      border-radius: 20px;
+
+      margin-top: 20px;
+
+      @include lg{
+        margin-top: 0px;
+      }
+    }
+  }
+
+  &__info {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    color: $color-white;
+
+    @include lg{
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__left, &__right {
+      width: 100%;
+      
+      @include lg{
+        width: auto;
+      }
+    }
+
+    &__left{
+      display: flex;
+      align-items: center;
+
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      justify-content: space-between;
+
+      padding-bottom: 10px;
+      border-bottom: 3px solid $color-secondary;
+
+      @include lg{
+        flex-direction: column;
+        flex: 1;
+
+        padding-bottom: 0px;
+        border-bottom: none;
+      }
+
+      & > div {
+        margin: 7px 5px;
+
+        width: 250px;
+
+        @include lg{
+          margin: 15px 10px;
+        }
+
+        & > div, & > p {
+          margin-top: 10px;
+        }
+      }
+
+      &__contact, &__degree, &__languages, &__hobbies {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        //border-bottom: 1px solid $color-white;
+
+        @include lg{
+          align-items: flex-start;
+        }
+      }
+
+      &__contact {
+
+        &-email{
+          margin-top: 20px;
+        }
+        &-phone{
+
+        }
+        &-address{
+
+        }
+      }
+    }
+
+    &__right{
+      @include lg{
+        flex: 2;
+      }
+
+      &__skills, &__projects, &__history{ 
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        margin-left: 5px;
+        margin-top: 5px;
+
+        padding-bottom: 10px;
+        border-bottom: 1px solid $color-secondary;
+
+        @include lg{
+          margin-top: 15px;
+          margin-left: 0px;
+        }
+      }
+
+      &__skills {
+        
+        &__confident, &__exploring {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          flex-wrap: wrap;
+
+          width: 100%;
+
+          & > div {
+            display: block;
+            flex: 1;
+
+            min-width: 250px;
+            margin-top: 5px; 
+            margin-right: 10px;
+
+            > p {
+              display: block;
+              margin-top: 10px;
+              
+            }
+
+          }
+        }
+
+      }
+
+      &__projects {
+
+
+        & > div {
+          margin-top: 10px;
+          p{
+            display: inline-block;
+
+            a {
+              color: $color-tertiary;
+              padding: 0;
+              margin: 0;
+            }
+          }
+        }
+      }
+
+      &__history {
+
+        & > div {
+          margin-top: 10px;
+          p{
+            display: inline-block;
+          }
+        }
+      }
+    }
+  
+  }
+
+
+}

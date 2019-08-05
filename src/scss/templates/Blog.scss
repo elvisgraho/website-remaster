@@ -1,0 +1,34 @@
+.blog {
+  min-height: 100%;
+
+  background-color: $color-b;
+
+  padding-top: 100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include lg{
+    padding-top: 120px;
+  }
+
+  &__wrapper{
+    display: flex;
+    flex-direction: column;
+
+    color: $color-white;
+
+    max-width: $wrapper-large;
+    width: calc(100% - 40px);
+
+    margin-top: 50px;
+    
+    @include lg{
+      flex-direction: row;
+      justify-content: space-between;
+
+      margin-top: 120px;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+//relative to main.scss
+$font-path: '../fonts/';
+
+/* ABeeZee */
+@font-face {
+  font-family: 'ABeeZee';
+  font-style: normal;
+  font-weight: 400;
+  src: url(#{$font-path}ABeeZee-Regular.ttf) format('truetype');
+}
+@mixin font-abz-normal {
+  font-family: 'ABeeZee';
+  font-style: normal;
+  font-weight: 400;
+}
+/* AbhayaLibre */
+@font-face {
+  font-family: 'AbhayaLibre';
+  font-style: normal;
+  font-weight: 800;
+  src: url(#{$font-path}AbhayaLibre-Bold.ttf) format('truetype');
+}
+@mixin font-abh-bold {
+  font-family: 'AbhayaLibre';
+  font-style: normal;
+  font-weight: 800;
+}

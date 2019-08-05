@@ -1,0 +1,42 @@
+.header{
+  position: fixed;
+  z-index: 100;
+
+  width: 100%;
+
+  height: 40px;
+  margin-top: -30px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  
+  background-color: $color-secondary;
+
+  @include lg {
+    height: 35px;
+    margin-top: -35px;
+  }
+
+  &-button{
+    color: $color-white;
+    @include font-abz-normal;
+
+    font-size: 20px;
+    margin: 0;
+  }
+
+  &--show{
+    margin-top: 0px;
+    transition: margin-top 0.5s ease-out;
+  }
+
+  a{
+    margin: 0px 10px;
+
+    @include lg {
+      margin: 0px 25px;
+    }
+  }
+}

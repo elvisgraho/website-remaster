@@ -1,0 +1,29 @@
+{
+  "navigationTabs": [
+    {
+      "headline": "Who am I?",
+      "text": "Hi. I am a <b>Web Developer</b> and this is my new website.<br><br>If you are reading this, then you are probably woundering what <b>life decisions</b> made you come to this place. But before you go too far into questioning yourself, you can question <b>me</b>! <b>Click the button bellow</b> to find more!<br><br>",
+      "image": "",
+      "btnText": "My resume",
+      "btnClass": "primary shake",
+      "route": "/resume"
+    },
+    {
+      "headline": "Interesting stuff",
+      "text": "<b>Attention! Attention!</b> For the past few years I dedicated myself to discover the <b>secrets of the universe</b>! Is the world actually <b>flat</b>? Are there <b>reptilians</b> pretending to be human amongst us? How does the <b>JavaScript debouncer</b> actually works? Find out in my personal blog, crafted and refined for <b>YOU</b>!<br><br><br>",
+      "image": "",
+      "btnText": "My blog",
+      "btnClass": "primary shake",
+      "route": "/blog"
+    },
+    {
+      "headline": "Relax",
+      "text": "I'v created an <b>experiment</b> webpage where you can interact with a <b>database</b>.<br><br><b>Frontend</b> - React with Redux<br><b>Backend</b> - NodeJS, ExpressJS, Docker, Redis and PostgreSQL.<br><br>Relax and check if you can interact with the database!",
+      "image": "",
+      "btnText": "Experiment",
+      "btnClass": "primary shake",
+      "url": "https://elvisgraho.github.io/showcase/"
+    }
+  ]
+
+}

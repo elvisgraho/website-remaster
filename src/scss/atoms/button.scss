@@ -1,0 +1,70 @@
+.button {
+  display: inline-block;
+  cursor: pointer;
+
+  @include font-abz-normal;
+
+  font-size: 19px;
+  
+  padding: 8px 18px;
+
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
+
+  @include lg{
+    font-size: 22px;
+    padding: 10px 25px;
+  }
+
+  &--small {
+    font-size: 19px;
+    padding: 5px 15px;
+  }
+
+  &--left{
+    margin-left: 10px;
+  }
+  &--right{
+    margin-right: 10px;
+  }
+
+  &--primary {
+    color: $color-white;
+    background-color: $color-secondary;
+  }
+  &--secondary {
+    color: $color-dark;
+    background-color: $color-white;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-secondary;
+    }
+  }
+  &--tertiary{
+    color: $color-white;
+    background-color: $color-tertiary;
+  }
+  &--quaternary{
+    color: $color-white;
+    background-color: $color-quaternary;
+  }
+}
+
+.shake:hover {
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+
+  animation-name: shakeAnim;
+}
+
+@keyframes shakeAnim {
+  0% {margin-left: 0px}
+  5% {margin-left: -3px}
+  10% {margin-left: 5px}
+  15% {margin-left: -8px}
+  20% {margin-left: 8px}
+  25% {margin-left: -5px}
+  30% {margin-left: 3px}
+  35% {margin-left: 0px}
+}

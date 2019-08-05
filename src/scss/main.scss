@@ -1,0 +1,27 @@
+//defaults
+@import './01-default/01-defaul.scss';
+@import './01-default/02-media.scss';
+@import './01-default/03-colors.scss';
+@import './01-default/04-wrappers.scss';
+@import './01-default/05-fonts.scss';
+
+//atoms
+@import './atoms/letter.scss';
+@import './atoms/button.scss';
+@import './atoms/text.scss';
+@import './atoms/headline.scss';
+
+//molecules
+@import './molecules/name-display.scss';
+@import './molecules/Tab-Navigation.scss'; 
+@import './molecules/Text-Media.scss'; 
+@import './molecules/under-construction.scss'; 
+@import './molecules/Header.scss'; 
+@import './molecules/BlogArticle.scss'; 
+
+//organisms
+@import './organisms/Stage.scss';
+@import './organisms/BlogContainer.scss';
+//templates
+@import './templates/Resume.scss';
+@import './templates/Blog.scss';

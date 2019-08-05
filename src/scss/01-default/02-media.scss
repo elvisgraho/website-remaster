@@ -1,0 +1,49 @@
+//this file containts scss mixins
+
+
+@mixin sm {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+
+/*
+// 7 years react cant fix this :(
+// https://github.com/sass/sass/issues/1050
+
+@include breakpoint($arg){
+
+  @if $arg == sm {
+    @mixin default { @media (min-width: 576px) { @content; } }
+  }
+  @else if $arg == md {
+    @media (min-width: 768px) { @content; }
+  }
+  @else if $arg == lg {
+    @media (min-width: 992px) { @content; }
+  }
+  @else if $arg == xl {
+    @media (min-width: 1200px) { @content; }
+  }
+  @else {
+    @error "Mixin does not exist!"
+  }
+  
+}
+*/

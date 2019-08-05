@@ -1,0 +1,34 @@
+$wrapper-large: 1200px;
+$wrapper-two-thrids: 700px;
+$wrapper-one-third: 400px;
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  
+  margin-right: 20px;
+  margin-left: 20px;
+
+  @include lg {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &--primary {
+    width: calc( 100% - 40px );
+    max-width: 992px;
+  }
+  
+  &--secondary {
+    width: calc( 100% - 40px );
+    max-width: $wrapper-large;
+  }
+
+  &--tertiary {
+    
+  }
+
+  &--quaternary {
+    
+  }
+}

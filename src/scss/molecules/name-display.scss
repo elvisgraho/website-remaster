@@ -1,0 +1,61 @@
+.name-display{
+  display: flex;
+  flex-direction: row;
+
+  opacity: 0;
+
+  @include font-abh-bold;
+  text-align: center;
+
+  &:nth-child(2){
+    margin-top:60px;
+    @include md {
+      margin-left: 20px;
+      margin-top: 30vh;
+    }
+  }
+
+  &--show{
+    opacity: 1;
+    transition: opacity 1.5s ease-out;
+  }
+
+
+  &-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include md {
+      flex-direction: row;
+    }
+  }
+}
+
+.name-display--small {
+
+  .letter {  
+    font-size: 24px;
+    line-height: 32px;
+    height: 32px;
+    width: 31px;
+  
+    @include sm {
+      font-size: 38px;
+      line-height: 45px;
+      height: 45px;
+      width: 46px;
+    }
+    @include lg {
+      font-size: 50px;
+      line-height: 50px;
+      height: 50px;
+      width: 60px;
+    }
+    @include xl {
+      font-size: 68px;
+      line-height: 70px;
+      height: 70px;
+      width: 75px;
+    }
+  }
+}

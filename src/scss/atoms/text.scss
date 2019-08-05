@@ -1,0 +1,30 @@
+.text {
+  @include font-abz-normal;
+
+  &--primary{
+    font-size: 20px;
+
+    @include lg{
+      font-size: 25px;
+    }
+  }
+  
+  &--secondary{
+    font-size: 16px;
+
+    @include lg{
+      font-size: 20px;
+    }
+  }
+  &--tertiary{
+    font-size: 14px;
+
+    @include lg{
+      font-size: 17px;
+    }
+  }
+
+  &--top {
+    margin-top: 20px;
+  }
+}

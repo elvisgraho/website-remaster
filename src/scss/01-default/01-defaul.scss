@@ -1,0 +1,37 @@
+//this file contains default styling
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: block;
+  height: 100vh;
+
+  background-color: black;
+
+  overflow-x: hidden;
+}
+
+#root {
+  display: block;
+  height: 100%;
+}
+
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+a {
+  text-decoration: none;
+  margin: 20px 10px;
+}

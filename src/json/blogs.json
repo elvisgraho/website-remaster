@@ -1,0 +1,46 @@
+{
+  "blogs" : [
+    {
+      "previewImgSrc": "https://cdn-images-1.medium.com/max/1109/1*TWVs8hNCI7B7t2Y4tA-u1A.png",
+      "previewImgAlt": "javaScript",
+
+      "previewHeadline": "JavaScript Debouncer Explained",
+      "previewText": "A lot of articles in the internet do not explain the workings of the JavaScript debouncer code. Do you want to actually know how to write it?",
+      "previewBtnText": "Read This Article",
+
+      "blogContent": {
+        "blogHeadline": "JavaScript Debouncer Explained",
+        "blogTextContent": [
+          {"type": "text", "content": "A lot of articles in the internet do not explain the workings of the JavaScript debouncer code. Because of that, you can actually see the copy-pasting people do when answering stackOverflow questions. Even when the code is well documented you will still have a hard time understanding how it works. In this article I will try my best to explain exactly <b>how to debounce your code</b> and how everything works. You will learn the <b>hidden gems of JavaScript</b> along the way."},
+          {"type": "headline", "headline": "You start with a problem"},
+          {"type": "text", "content": "Let us start with a simple problem. We have a <b>sayHello</b> function and we create a event <b>window.onresize = function () {sayHello();}</b>"},
+          {"type": "text", "content": "Now <b>every time</b> when we resize our window (or we can apply the same thing to buttons and scrolling) <b>we trigger a sayHello function call</b>. That is a lot of function calls which can make our application really slow and prone to a lot of errors! The solution to our immidiete problem is debouncing."},
+          {"type": "text", "content": "After we debounce our function, <b>it will be called only once</b> after the user is finished his action (window resize / scrolling / spamming the button). What debouncer actually does is - every time the window.onresize is called, we say: <b>'if you want to execute sayHello function then do not execute it + execute my sayHello function after 300 miliseconds'</b>."},
+          {"type": "text", "content": "<pre>Here is the code:<br><br>let timeoutID;<br>let sayHello = () => {<br>  clearTimeout(timeoutID);<br>  timeoutID = setTimeout(() => {<br>    alert('hello');<br>  }, 300);<br>} </pre>"},
+          {"type": "text", "content": "As you see we use <b>setTimeout</b> here to set our function call 300 miliseconds in the 'future'. JavaScript <b>setTimeout function actually returns unique ID</b> which we will remember and then use to <b>cancel that timeout</b> by using <b>clearTimeout</b> in case our sayHello function is called again."},
+          {"type": "text", "content": "How does it work: We resize the window <b>-></b> we call sayHello <b>-></b> we remove 'alert('hello') from JavaScript function call stack (<i>we can remove it because we have its ID AND in the very first call our timeoutID is actually <b>undefinded</b>, but the clearTimeout function has 0 problems with that</i>) <b>-></b> we put 'alert('hello') function call 300 miliseconds into the future and remember its ID for potential clearTimeout function call."},
+          {"type": "text", "content": "Very simple and <b>unless the user triggers our events faster than 300 miliseconds</b> our <b>function will be called only once</b> after the user is finished with event spamming."},
+
+          {"type": "headline", "headline": "We want to create function that debounces any function"},
+
+          {"type": "text", "content": "I dont want to rewrite all my functions with this debaunce fuzzy buzzy, so I will <b>create a function that debounces our functions</b>. Like inception but with functions."},
+          {"type": "text", "content": "<pre>let debouncer = (func, time) => {<br>  let timeoutID;<br>  return function() {<br>    clearTimeout(timeoutID);<br>    timeoutID = setTimeout(func, time);<br>  }<br>}<br><br>let debouncedHello = debouncer(sayHello, 300);</pre>"},
+          {"type": "text", "content": "Now we use debouncedHello() for our events. As you can see it is very simple and we actually create our unique scoping by placing timeoutID outside the returned function. So we do not need global timeoutID anymore!"},
+          {"type": "headline", "headline": "Wait a sec. How do I pass arguments into my original function?"},
+          {"type": "text", "content": "Right. How do we do it? We modify our debouncer function: "},
+          {"type": "text", "content": "<pre>// bad solution<br><br>return function(x) {<br>  clearTimeout(timeoutID);<br>  timeoutID = setTimeout( () => func(x), time);<br>}<br><br> -> Bad because we can only pass 1 argument</pre>"},
+          {"type": "text", "content": "<pre>// good solution<br><br>return function() {<br>  clearTimeout(timeoutID);<br>  timeoutID = setTimeout( () => func([...arguments]), time);<br>}<br><br> -> Good because is applicable to functions with varying inputs</pre>"},
+          {"type": "text", "content": "WAIT! What the heck is <b>[...arguments]</b>? Answer: every time the function in JavaScript is called the <b>JavaScript natively creates 'arguments' object</b> with all parameters that were passed to the function. 'arguments' object behaves like a normal array, but it is still an object se we need to do this -> <b>[...arguments]</b> (<b>...</b> is a property spread notation) to pass array with parameters and not the 'arguments' object and pass a copy and not a reference. <b>Bdw. arrow functions do not creaete 'arguments' object!</b>"},
+
+          {"type": "headline", "headline": "Last problem: our debouncer is not applicable to objects"},
+          {"type": "text", "content": "<pre>return function() {<br>  clearTimeout(timeoutID);<br>  timeoutID = setTimeout( () => func.apply(this, [...arguments]), time);<br>}</pre>"},
+          {"type": "text", "content": "We use .apply() function to <b>change the context</b> of our debounced function (The same way we use .bind in React (for example). Apply function does the same and calls the function right away)."},
+          {"type": "text", "content": "By the way, <b>you can not change the context of arrow functions</b>!!! So if we want to mess with context, we are only allowed to <b>use native JavaScript functions</b>!"},
+
+          {"type": "text", "content": "I hope that now you know what debouncing is! I hope that you also learned some super secret JavaScript stuff like the <b>difference between native JavaScript functions and arrow functions</b>."}
+        ]
+      }
+    }
+
+  ]
+}
