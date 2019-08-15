@@ -48,13 +48,6 @@ class Header extends React.Component {
             </div>
           </Link>
         )}
-        {route !== "/resume" && (
-          <Link to={process.env.PUBLIC_URL + "/resume"} onClick={onRouteChange}>
-            <div className="header-button">
-              Resume
-            </div>
-          </Link>
-        )}
         {route !== "/blog" && (
           <Link to={process.env.PUBLIC_URL + "/blog"} onClick={onRouteChange}>
             <div className="header-button">

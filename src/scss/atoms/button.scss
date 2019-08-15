@@ -8,7 +8,7 @@
   
   padding: 8px 18px;
 
-  transition: background-color 0.2s ease-out, color 0.2s ease-out;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out, opacity 0.5s ease-out;
 
   @include lg{
     font-size: 22px;

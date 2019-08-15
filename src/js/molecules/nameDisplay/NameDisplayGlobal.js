@@ -1,5 +1,6 @@
 import React from 'react';
 import NameDisplay from './NameDisplay';
+import uuidv1 from 'uuid/v1';
 
 
 class NameDisplayGlobal extends React.Component {
@@ -40,8 +41,8 @@ class NameDisplayGlobal extends React.Component {
   render () {
     return (
       <React.Fragment>
-        {this.props.arrayOfTexts.map( (text, index) => {
-          return <NameDisplay text = {text} key={index}/>
+        {this.props.arrayOfTexts.map( (text) => {
+          return <NameDisplay text = {text} key={uuidv1()}/>
         })}
       </React.Fragment>
     )

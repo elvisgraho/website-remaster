@@ -1,6 +1,7 @@
 import React from 'react';
 import NameDisplayGlobal from '../molecules/nameDisplay/NameDisplayGlobal';
 import aTag from '../atoms/aTag';
+import {Link} from "react-router-dom";
 
 import Image from "../../images/png/me.png";
 
@@ -18,8 +19,10 @@ class Resume extends React.Component {
     this.animationIDRight2 = 0;
     this.animationIDRight3 = 0;
     this.animationIDRight4 = 0;
+    this.animationIDButton = 0;
 
     this._isMounter = false;
+    this.showBlog = false;
 
 
     this.refTop = React.createRef();
@@ -28,6 +31,7 @@ class Resume extends React.Component {
     this.refRight2 = React.createRef();
     this.refRight3 = React.createRef();
     this.refRight4 = React.createRef();
+    this.refRight5 = React.createRef();
   };
 
 
@@ -40,6 +44,7 @@ class Resume extends React.Component {
     this.animationIDRight2 = setTimeout(()=> this.refRight2.current.classList.add("active") , 2500);
     this.animationIDRight3 = setTimeout(()=> this.refRight3.current.classList.add("active") , 3100);
     this.animationIDRight4 = setTimeout(()=> this.refRight4.current.classList.add("active") , 3800);
+    this.animationIDRight5 = setTimeout(()=> this.refRight5.current.classList.remove("hidden") , 4200);
   }
 
   componentWillUnmount() {
@@ -49,6 +54,7 @@ class Resume extends React.Component {
     clearTimeout(this.animationIDRight2);
     clearTimeout(this.animationIDRight3);
     clearTimeout(this.animationIDRight4);
+    clearTimeout(this.animationIDRight5);
 
     this.props.onRouteChange();
   }
@@ -66,9 +72,7 @@ class Resume extends React.Component {
             <div>
               <img alt="portrait" src={Image} />
             </div>
-            <div> 
-              <p className="headline headline--primary">Elvis Graholskis</p>
-            </div>
+            <p className="headline headline--primary">Elvis Graholskis</p>
           </div>
 
           <div className="resume__info">
@@ -76,12 +80,11 @@ class Resume extends React.Component {
             <div className="resume__info__left " ref={this.refLeft}>
               <div className="resume__info__left__contact">
                 <h2 className="headline headline--secondary red">Contact</h2>
-                <p className="text text--secondary resume__info__left__contact-email">Placeholder</p>
-                <p className="text text--secondary resume__info__left__contact-phone">Placeholder</p>
+                <p className="text text--secondary resume__info__left__contact-phone">elvis.graho@gmail.com</p>
+                {/*
                 <div className="text text--secondary resume__info__left__contact-address">
-                  <div>Margaretenstrasse 18</div>
-                  <div>60489 Frankfurt am Main</div>
                 </div>
+                */}
               </div>
               <div className="resume__info__left__degree">
                 <h2 className="headline headline--secondary red">Degree</h2>
@@ -104,7 +107,7 @@ class Resume extends React.Component {
             </div>
             <div className="resume__info__right">
               <div className="resume__info__right__skills" ref={this.refRight1}>
-                <h2 className="headline headline--secondary red">Skills (confident)</h2>
+                <h2 className="headline headline--secondary red">Skills</h2>
                 <div className="resume__info__right__skills__confident">
                   <div>
                     <p className="text text--secondary">HTML / HTML5 / Canvas</p>
@@ -124,19 +127,21 @@ class Resume extends React.Component {
                 </div>
               </div>
               <div className="resume__info__right__skills " ref={this.refRight2}>
-                <h2 className="headline headline--secondary red">Skills (learning)</h2>
-                <div className="resume__info__right__skills__exploring">
+                <div className="resume__info__right__skills__confident">
                   <div>
                     <p className="text text--secondary">NodeJS / Express</p>
-                    <p className="text text--secondary">Docker</p>
-                    <p className="text text--secondary">Redis / GraphQL</p>
+                    <p className="text text--secondary">Docker / Kubernetes</p>
+                    <p className="text text--secondary">Redis / postgreSQL </p>
                   </div>
                   <div>
+                    <p className="text text--secondary">Redux</p>
+                    <p className="text text--secondary">Angular</p>
+                    <p className="text text--secondary">Java Spring Boot</p>
                   </div>
                   <div>
                     <p className="text text--secondary">REST API</p>
-                    <p className="text text--secondary">WebGL</p>
-                    <p className="text text--secondary">Redux</p>
+                    <p className="text text--secondary">Debugging</p>
+                    <p className="text text--secondary">Clean Code</p>
                   </div>
                 </div>
               </div>
@@ -145,7 +150,6 @@ class Resume extends React.Component {
                 <div>
                   <p className="text text--secondary">React-Native App 
                     Google-Play: {aTag("https://bit.ly/2OUsWM6", "Link ")}
-                    Web-Demo: {aTag("https://bit.ly/2Iz6TXI", "Link ")}
                   </p> 
                 </div>
                 <div>
@@ -156,14 +160,17 @@ class Resume extends React.Component {
                 </div>
                 <div>
                   <p className="text text--secondary">
-                    {aTag("https://www.berliner-pilsner.de/", "berliner-pilsner.de")}
+                    {aTag("https://radeberger.de/", "radeberger.de")}
                   </p> 
                 </div>
               </div>
-              <div className="resume__info__right__history " ref={this.refRight4}>
+              <div className="resume__info__right__history" ref={this.refRight4}>
                 <h2 className="headline headline--secondary red">History</h2>
                 <div>
-                  <p className="text text--secondary">Dec 2018 - Today: Arithnea GmbH / Web Developer</p>
+                  <p className="text text--secondary">Jun 2019 - Today: Valtech Mobility GmbH</p>
+                </div>
+                <div>
+                  <p className="text text--secondary">Dec 2018 - Jun 2019: Arithnea GmbH / Web Developer</p>
                 </div>
                 <div>
                   <p className="text text--secondary">Dec 2017 - Sep 2018: TES Electronic Solutions / Software Developer (C++)</p>
@@ -176,7 +183,18 @@ class Resume extends React.Component {
 
           </div>
           
-          <a type="submit" className="button button--primary" href={"www.google.com"}  rel="noopener noreferrer" target="_blank" download="">Download PDF!</a>
+          {/*
+            <a type="submit" className="button button--primary"
+             href={"www.google.com"}  
+             rel="noopener noreferrer" 
+             target="_blank" 
+             download="">Download PDF!</a> 
+          */}
+            <Link to={process.env.PUBLIC_URL + "/blog"} 
+              onClick={this.props.onRouteChange}>
+                <div ref={this.refRight5} className={"button button--primary hidden"}>Blog</div>
+            </Link>
+
         </div>
       </div>
     )

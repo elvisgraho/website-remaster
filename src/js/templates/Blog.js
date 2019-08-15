@@ -1,5 +1,4 @@
 import React from 'react';
-import uuidv1 from 'uuid/v1';
 
 import NameDisplayGlobal from '../molecules/nameDisplay/NameDisplayGlobal';
 import BlogContainer from '../organisms/BlogContainer';
